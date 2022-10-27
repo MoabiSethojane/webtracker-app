@@ -84,20 +84,6 @@ class Tracker extends Component{
             // })
         }
     }
-    componentWillMount(){
-        const{currentUID,money}=this.state;
-        let totalMoney = money;
-        const backUpState =  this.state.transactions
-        fire.firestore().collection("trasactions").doc(currentUID).set({
-            id: backUpState.length  ,
-            money: totalMoney,
-            user_id: currentUID
-           })
-           ((snapshot)=>{
-            console.log(snapshot)
-           })
-        
-    }
     render(){
         var currentUser = fire.auth().currentUser
       
